@@ -27,6 +27,8 @@ Python: Descargar Python
 Flask: Instalar usando pip (pip install Flask)
 Firebase: Instalar usando pip (pip install firebase-admin)
 
+El archivo que se debe ejecutar es el de app.py
+
 ## Organización
 
 El proyecto se organiza de la siguiente manera:
