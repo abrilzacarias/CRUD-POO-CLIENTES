@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/static/css/index.css">
-</head>
+    <script src="https://kit.fontawesome.com/05c2be17c9.js" crossorigin="anonymous"></script>
+  </head>
   <div class="container">
-   <table class="table table-striped">
+   <table class="table">
+    <h2>Clientes</h2>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
       <thead>
         <tr>
           <th scope="col">Nombre</th>
@@ -15,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        {% for cliente_id, cliente_data in clientes.items() %}
+        {% for clienteid, cliente_data in clientes.items() %}
         <tr>
             <td>{{ cliente_data['nombre'] }}</td>
             <td>{{ cliente_data['apellido'] }}</td>
@@ -23,22 +28,32 @@
             <td>{{ cliente_data['telefono'] }}</td>
             <td>{{ cliente_data['email'] }}</td>
             <td>
-                <a href=""
-              onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?');">
-                    <button class="btn btn-delete">eliminar</button>
+                <a href="{{ url_for('EliminarCliente', clienteid=clienteid)}}"
+              onclick="return confirm('¿Está seguro de que desea eliminar este cliente?');">
+                    <button class="btn eliminar"><i class="fa-solid fa-trash"></i></button>
                 </a>
 
-                <a href="">
-                    <button class="btn btn-edit">modificar</button>
+                <a href="{{ url_for('ModificarCliente', clienteid=clienteid)}}">
+                    <button class="btn modificar"><i class="fa-solid fa-pencil"></i></button>
                 </a>
             </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
-    <a href="{{ url_for('AnadirCliente') }}">
-      <button class="btn btn-primary">Agregar Cliente</button>
-    </a>
+    {% endif %}
+    <div class="buscar-agregar">
+      {% if busqueda %}
+      <form action="{{ url_for('buscarCliente') }}" method="GET">
+        <label for="apellido">Buscar cliente por apellido:</label>
+        <input type="text" name="apellido" id="apellido" class="buscar-apellido" placeholder="Ingrese el apellido">
+        <button class="btn buscar" type="submit"><i class="fa-solid fa-search"></i></button>
+      </form>
+      {% endif %}
+      <a href="{{ url_for('AnadirCliente') }}">
+        <button class="btn agregar">Agregar Cliente</button>
+      </a>
+    </div>
   </div>
 
 </body>

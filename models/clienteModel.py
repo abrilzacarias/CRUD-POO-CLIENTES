@@ -29,16 +29,24 @@ class ClienteModel:
         ref = db.reference('/clientes')
         return ref.child(clienteId).get()
 
-    def actualizarCliente(self, clienteId, nombre, email, telefono):
+    def actualizarCliente(self, clienteId, nombre, apellido, domicilio, telefono, email):
         # Actualiza un cliente existente
         ref = db.reference('/clientes')
         ref.child(clienteId).update({
             'nombre': nombre,
-            'email': email,
-            'telefono': telefono
+            'apellido': apellido,
+            'domicilio': domicilio,
+            'telefono': telefono,
+            'email': email
         })
 
     def eliminarCliente(self, clienteId):
         # Elimina un cliente por su ID
         ref = db.reference('/clientes')
         ref.child(clienteId).delete()
+
+    def obtenerClientePorApellido(self, apellidoCliente):
+        ref = db.reference('/clientes')
+        # Realiza una consulta para buscar clientes por nombre
+        resultados = ref.order_by_child('apellido').equal_to(apellidoCliente).get()
+        return resultados

@@ -1,5 +1,5 @@
 class Persona:
-    def _init_(self, nombre, apellido, domicilio, telefono, email):
+    def __init__(self, nombre, apellido, domicilio, telefono, email):
         self.__nombre = nombre
         self.__apellido = apellido
         self.__domicilio = domicilio
@@ -35,3 +35,7 @@ class Persona:
     
     def setEmail(self, email):
         self.__email = email
+
+    #POLIMORFISMO: tanto la clase Cliente como la clase Persona poseen un metodo llamado obtenerDatos, pero este se comporta de manera distinta.
+    def obtenerDatos(self):
+        return self.getNombre(), self.getApellido(), self.getDomicilio(), self.getTelefono(), self.getEmail()
