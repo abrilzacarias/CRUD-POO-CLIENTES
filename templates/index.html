@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+  <div class="container">
+   <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Domicilio</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">E-mail</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cliente_id, cliente_data in clientes.items() %}
+        <tr>
+            <td>{{ cliente_data['nombre'] }}</td>
+            <td>{{ cliente_data['apellido'] }}</td>
+            <td>{{ cliente_data['domicilio'] }}</td>
+            <td>{{ cliente_data['telefono'] }}</td>
+            <td>{{ cliente_data['email'] }}</td>
+            <td>
+                <a href=""
+              onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?');">
+                    <button class="btn btn-delete">eliminar</button>
+                </a>
+
+                <a href="">
+                    <button class="btn btn-edit">modificar</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="{{ url_for('AnadirCliente') }}">
+      <button class="btn btn-primary">Agregar Cliente</button>
+    </a>
+  </div>
+
+</body>
+</html>
