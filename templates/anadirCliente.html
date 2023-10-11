@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/formulario.css">
-    <title>Document</title>
+    <title>Agregar Cliente</title>
 </head>
 <body>
-    <div>
+    <div class="container">
         <h2>Agregar Cliente</h2>
         <form method="POST" action="{{ url_for('AnadirCliente') }}" class="form">
             <div class="form-group">
@@ -16,21 +16,21 @@
             </div>
             <div class="form-group">
                 <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido" required>
+                <input type="text" class="formulario" id="apellido" name="apellido" required>
             </div>
             <div class="form-group">
                 <label for="domicilio">Domicilio:</label>
-                <input type="text" id="domicilio" name="domicilio" required>
+                <input type="text" class="formulario" id="domicilio" name="domicilio" required>
             </div>
             <div class="form-group">
                 <label for="telefono">Telefono:</label>
-                <input type="text" id="telefono" name="telefono" pattern="[0-9]{10}" required>
+                <input type="text" class="formulario" id="telefono" name="telefono" pattern="[0-9]{10}" required>
             </div>
             <div class="form-group">
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" class="formulario" id="email" name="email" required>
             </div>
-            <button type="submit" class="btn btn-primary">Agregar</button>
+            <button type="submit" class="btn agregar">Agregar</button>
         </form>
     </div>
 </body>
