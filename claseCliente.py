@@ -1,10 +1,10 @@
 from clasePersona import Persona
-
+#Clase CLIENTE hereda de PERSONA, la cual actua como superclase
 class Cliente(Persona):
     def __init__(self, nombre, apellido, domicilio, telefono, email):
         super().__init__(nombre, apellido, domicilio, telefono, email)
         self.__idUsuario = None
-
+    #ABSTRACCION Y ENCAPSULAMIENTO
     def getIdUsuario(self):
         return self.__idUsuario
     

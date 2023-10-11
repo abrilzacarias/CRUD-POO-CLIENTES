@@ -1,3 +1,4 @@
+#Clase PERSONA la cual actua de superclase
 class Persona:
     def __init__(self, nombre, apellido, domicilio, telefono, email):
         self.__nombre = nombre
@@ -6,6 +7,8 @@ class Persona:
         self.__telefono = telefono 
         self.__email = email
     
+    #ENCAPSULAMIENTO Y ABSTRACCION
+
     def getNombre(self):
         return self.__nombre
     

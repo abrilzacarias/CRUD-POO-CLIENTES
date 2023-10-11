@@ -4,6 +4,7 @@ from claseCliente import Cliente
 from models.clienteModel import ClienteModel
 
 app = Flask(__name__)
+#instancia del modelo de cliente
 clientesModelo = ClienteModel()
 
 @app.route('/')
