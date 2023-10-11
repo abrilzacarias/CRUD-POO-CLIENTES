@@ -39,7 +39,7 @@ def AnadirCliente():
         telefono = request.form['telefono']
         email = request.form['email']
 
-        cliente = Cliente(nombre,apellido,domicilio,telefono,email)
+        cliente = Cliente(nombre, apellido, domicilio, telefono, email)
         clientesModelo.crearCliente(nombre, apellido, domicilio, telefono, email)
         
         return redirect('/')
